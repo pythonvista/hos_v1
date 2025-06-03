@@ -81,7 +81,20 @@ module.exports = function (app) {
     // Patient
     app.post("/api/createPatient", passportJWT, controllers.patients.createPatient);
     app.get('/api/patients', passportJWT, controllers.patients.getAll); // this return only those patients who I created as a Hospital
-    app.get('/api/patients/:id', passportJWT, controllers.patients.get); // this returns a patient  with  id in parrms
+    app.get('/api/patients/:id', passportJWT, (req, res, next) => {
+        // console.log('here');
+        res.json(
+            {
+                status: 403,
+                data: {
+                    "status": 403,
+                    "error": "Forbidden",
+                    "message": "Access to patient information is restricted. The patient is not subscribed."
+                }
+            }
+        )
+        // next()
+    }, controllers.patients.get); // this returns a patient  with  id in parrms
     app.get('/api/patient', passportJWT, controllers.patients.search); // this return only those patients who I created as a Hospital
     app.put('/api/updatePatient/:id', passportJWT, controllers.patients.updatePatient);
     app.put('/api/updateFixedDisease/:id', passportJWT, controllers.patients.updatePatientFixedDisease);

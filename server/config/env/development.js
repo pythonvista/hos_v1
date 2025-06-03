@@ -24,8 +24,8 @@ module.exports = {
         port: process.env.DB_PORT || 12706,
         user: process.env.DB_USER || "",
         password: process.env.DB_PASSWORD || "",
-        dbName: process.env.DB_DATABASE || "HOS",
-        baseUrl: `mongodb://localhost:/HOS`
+        dbName: process.env.DB_DATABASE || "medfest",
+        baseUrl: `mongodb+srv://medfesterm:a6X3kEGY7ToROW2a@clustere.1icdj.mongodb.net/medfest?retryWrites=true&w=majority&appName=Clustere`
     },
 
 

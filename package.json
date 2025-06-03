@@ -2,6 +2,7 @@
     "name": "hospital",
     "version": "0.0.0",
     "scripts": {
+        "dev": "nodemon app.js",
         "ng": "ng",
         "start": "ng serve",
         "build": "ng build",

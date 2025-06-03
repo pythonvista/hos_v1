@@ -60,6 +60,7 @@ function get(req, res, next) {
         .exec(
             function (err, doc) {
                 if (err) { responseHandler(res, 500, err); return; };
+                console.log(doc);
                 responseHandler(res, 200, doc);
 
             })
